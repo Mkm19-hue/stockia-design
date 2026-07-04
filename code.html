@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stockia - Panier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#00714d",
+                      "outline-variant": "#c3c6d7",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container": "#e5eeff",
+                      "on-secondary-fixed": "#002113",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#dbe1ff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "tertiary-fixed": "#ffddb8",
+                      "outline": "#737686",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-fixed": "#2a1700",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-primary-container": "#eeefff",
+                      "surface-container-high": "#dce9ff",
+                      "secondary-fixed": "#6ffbbe",
+                      "inverse-surface": "#213145",
+                      "tertiary-container": "#996100",
+                      "surface-tint": "#0053db",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-surface-variant": "#434655",
+                      "secondary": "#006c49",
+                      "tertiary": "#784b00",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-error-container": "#93000a",
+                      "primary": "#004ac6",
+                      "on-background": "#0b1c30",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#2563eb",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-bright": "#f8f9ff",
+                      "surface": "#f8f9ff",
+                      "surface-container-low": "#eff4ff",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-variant": "#d3e4fe",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-error": "#ffffff",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-primary-fixed": "#00174b",
+                      "surface-dim": "#cbdbf5",
+                      "on-tertiary-container": "#ffeedd",
+                      "inverse-primary": "#b4c5ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "16px",
+                      "grid-columns-tablet": "8",
+                      "grid-columns-mobile": "4",
+                      "stack-gap": "12px",
+                      "section-gap": "24px",
+                      "grid-columns-desktop": "12",
+                      "baseline": "4px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "currency-display": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "currency-display": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c3c6d7;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen flex flex-col overflow-hidden antialiased md:flex-row">
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center px-container-padding h-16 w-full bg-surface dark:bg-inverse-surface w-full top-0 sticky flat no shadows z-50">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">Panier</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">delete_sweep</span>
+</button>
+</div>
+</header>
+<!-- Desktop SideNav / Contextual (Hidden on mobile, showing minimal state for POS) -->
+<aside class="hidden md:flex w-[320px] bg-surface-container-lowest border-r border-outline-variant/30 flex-col h-full flex-shrink-0 z-10 shadow-[2px_0_8px_rgba(0,0,0,0.02)]">
+<div class="p-6 border-b border-outline-variant/30">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Stockia</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Point de vente</p>
+</div>
+<div class="p-4 flex-grow overflow-y-auto">
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors text-left group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">home</span>
+<span class="font-title-md text-title-md">Accueil</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors text-left group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">inventory_2</span>
+<span class="font-title-md text-title-md">Produits</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container/10 text-primary font-medium transition-colors text-left relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r-full"></div>
+<span class="material-symbols-outlined" data-weight="fill">shopping_cart</span>
+<span class="font-title-md text-title-md">Vente en cours</span>
+</button>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a retail manager smiling in a well-lit modern store setting, crisp focus, soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6FkEppqxctMgKq5fetP8O8iGH8j9UQ0IT_L2SNx5-LPlKg2dL4B08tzM2DbaBUBhQcX4x-SqYNYt0KH6-0oSm0_U0K2X0t4w6_pw4SM5dCno3Fag7Mmd3wCCqaYz3jv9Wz9G4DE4ZnxAM_Z4eg6OgnCWVD7HRowJT5RAFTj2uemwC7uVtND8KzjheCYpgwnTtNpQbJmKjZPIGuACkqRGYWBXZ9LDG7LfhLXZAzJ-xFKj8o4DuGD4ykQClI8Guo97kATUWL-OIBXFs"/>
+</div>
+<div>
+<p class="font-title-md text-title-md text-sm">Profil de l'utilisateur</p>
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">Caisse #1</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen overflow-hidden bg-background md:bg-surface relative pb-20 md:pb-0">
+<!-- Desktop Top Header for Context -->
+<header class="hidden md:flex justify-between items-center px-8 h-20 border-b border-outline-variant/20 bg-surface-container-lowest shrink-0">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold flex items-center gap-2">
+                    Panier <span class="text-on-surface-variant/50 font-normal">#V-2409-001</span>
+</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 rounded-lg text-error hover:bg-error-container/50 font-title-md text-title-md text-sm transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">delete_sweep</span> Vider
+                </button>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-title-md text-title-md text-sm transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person_add</span> Client
+                </button>
+</div>
+</header>
+<!-- Split Layout Container for Tablet/Desktop -->
+<div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+<!-- Cart Items List -->
+<div class="flex-1 overflow-y-auto px-4 py-4 md:px-8 md:py-6 space-y-3 pb-48 md:pb-6">
+<!-- Item Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 md:p-4 flex gap-4 items-center shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-outline-variant/30 transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] group relative overflow-hidden">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-surface-container-low flex-shrink-0 overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern wireless speaker on a clean white background, studio lighting, high resolution, minimalist product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL21nKFf3E2PNpuh60KYXbMaUXLIWFdo4MkTXGzP1zIBBelYwrDMrxTl2uGEDSksrdD-omslcIwvsfR4KncViZ0tjNR2htd3_QaJXmYQvk4EKpTO1ByTGfavZHEbOQ1ZSToxml2FnzjNh7kIlQV4pTBXD8zOvNrGKwrri-BEWH6rPHm1cIwk_D2rFK58WPVwYAGOgvVCh4Q8K_MDuHYIxC0z2GGl4tkU1SJfQw3EcX1R1kEJWTlffYJTVs42w693FQO9NNJxq2c-1s"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Enceinte Bluetooth Pro</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant truncate">Réf: SPK-001</p>
+<p class="font-label-md text-label-md text-primary mt-1 font-bold">125 000 Ar</p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="flex items-center bg-surface-container rounded-lg border border-outline-variant/30 overflow-hidden h-9">
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="font-title-md text-title-md w-10 text-center text-sm font-semibold">1</span>
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-bold">125 000 Ar</p>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 md:p-4 flex gap-4 items-center shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-outline-variant/30 transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-surface-container-low flex-shrink-0 overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="A premium mechanical keyboard with RGB lighting on a minimalist desk setup, top-down view, soft ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADha0M_sf7mJA4C3Bo0Pz4u6-Rut9xQ2UEbYO82058jaPWz5zxCcDg3fXXpn7P0K6qnEOxgjXASh6Iti26vv_wc7NqOpi1IFzHNCoA1c0CI0mZYx0gu4aEhF2Z3On1X73tqGfgvKy5gamn_m8PQXEsQZJ7K7t_vF5yk_n0eUIyGBDNDa98u8lK0jZXhdaaJ-c7jsZE_FCsfQpCySLtU8svHz7L0C9Wj9qiPK8MM0u09fsRhrW3QJ8Agllrf-Xe-ixEdPtoioM2Jlyd"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Clavier Mécanique RGB</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant truncate">Réf: KB-M2</p>
+<p class="font-label-md text-label-md text-primary mt-1 font-bold">85 000 Ar</p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="flex items-center bg-surface-container rounded-lg border border-outline-variant/30 overflow-hidden h-9">
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="font-title-md text-title-md w-10 text-center text-sm font-semibold">2</span>
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-bold">170 000 Ar</p>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 md:p-4 flex gap-4 items-center shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-outline-variant/30 transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-surface-container-low flex-shrink-0 overflow-hidden border border-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-3xl">image</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Câble USB-C Tressé 2m</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant truncate">Réf: CBL-C2</p>
+<div class="flex items-center gap-2 mt-1">
+<p class="font-label-md text-label-md text-primary font-bold">15 000 Ar</p>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-error-container/30 text-error uppercase">Remise 10%</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="flex items-center bg-surface-container rounded-lg border border-outline-variant/30 overflow-hidden h-9">
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="font-title-md text-title-md w-10 text-center text-sm font-semibold">1</span>
+<button class="w-9 h-full flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface-variant line-through text-xs">15 000 Ar</p>
+<p class="font-label-md text-label-md text-on-surface font-bold leading-tight">13 500 Ar</p>
+</div>
+</div>
+</div>
+<!-- Spacer for scrolling on mobile past the fixed bottom sheet -->
+<div class="h-8 md:hidden"></div>
+</div>
+<!-- Summary & Checkout Panel (Fixed on mobile, side panel on desktop) -->
+<div class="absolute bottom-0 left-0 w-full md:relative md:w-[380px] bg-surface-container-lowest border-t md:border-t-0 md:border-l border-outline-variant/30 rounded-t-2xl md:rounded-none shadow-[0_-4px_20px_rgba(0,0,0,0.08)] md:shadow-none flex flex-col shrink-0 z-20">
+<!-- Pull indicator for mobile (aesthetic) -->
+<div class="w-full flex justify-center py-2 md:hidden">
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full"></div>
+</div>
+<div class="px-4 py-4 md:px-6 md:py-6 flex-1 flex flex-col justify-end md:justify-start">
+<h3 class="hidden md:block font-headline-lg text-title-md font-semibold text-on-surface mb-6">Résumé de la commande</h3>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Sous-total (4 articles)</span>
+<span class="font-label-md text-label-md text-on-surface text-right font-medium">310 000 Ar</span>
+</div>
+<div class="flex justify-between items-center text-error">
+<span class="font-body-md text-body-md flex items-center gap-1"><span class="material-symbols-outlined text-sm">sell</span> Remise</span>
+<span class="font-label-md text-label-md text-right font-medium">- 1 500 Ar</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">TVA (20%)</span>
+<span class="font-label-md text-label-md text-on-surface text-right font-medium">Inclus</span>
+</div>
+<div class="pt-4 mt-2 border-t border-outline-variant/30 flex justify-between items-end">
+<span class="font-title-md text-title-md text-on-surface">Total</span>
+<span class="font-currency-display text-currency-display text-primary tracking-tight">308 500 Ar</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-3 mt-auto">
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-title-md text-title-md flex items-center justify-center gap-2 hover:bg-primary-container/90 transition-all active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined text-xl">point_of_sale</span>
+                            Encaisser
+                        </button>
+<div class="flex gap-3 hidden md:flex">
+<button class="flex-1 h-12 rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface font-title-md text-title-md text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">pause_circle</span> Suspendre
+                            </button>
+<button class="flex-1 h-12 rounded-xl border border-outline-variant/50 hover:bg-surface-container-low text-on-surface font-title-md text-title-md text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">more_horiz</span> Options
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
